@@ -7,7 +7,7 @@ import java.util.Date;
 public interface DivisionService {
 Divisions getTreeDivisionsOnSpecificDate(Date specificDate);
 
-Divisions saveDivision(Divisions divisions);
+void saveDivision(Divisions divisions);
 
 void updateDivision(Divisions divisions);
 

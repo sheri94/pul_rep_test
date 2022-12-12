@@ -8,12 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -50,10 +45,10 @@ public class Divisions {
     @NonNull
     private String name;
 
-    @NonNull
-    @OneToMany
+    @OneToOne
     @JoinColumn(name = "ref_to_parent_division_id")
-    private List<Divisions> refToParentDivision;
+    @NonNull
+    private Divisions refToParentDivision;
 
     @NonNull
     private Date dateFrom;

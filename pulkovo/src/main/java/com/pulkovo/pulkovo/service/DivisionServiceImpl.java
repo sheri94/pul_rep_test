@@ -1,6 +1,7 @@
 package com.pulkovo.pulkovo.service;
 
 import com.pulkovo.pulkovo.model.Divisions;
+import com.pulkovo.pulkovo.repository.DivisionRepository;
 
 import java.util.Date;
 
@@ -13,15 +14,22 @@ import java.util.Date;
  * \* Description:
  * \
  */
-public class DivisionServiceImpl implements DivisionService{
+public class DivisionServiceImpl implements DivisionService {
+
+    private final DivisionRepository divisionRepository;
+
+    public DivisionServiceImpl(DivisionRepository divisionRepository) {
+        this.divisionRepository = divisionRepository;
+    }
+
     @Override
     public Divisions getTreeDivisionsOnSpecificDate(Date specificDate) {
         return null;
     }
 
     @Override
-    public Divisions saveDivision(Divisions divisions) {
-        return null;
+    public void saveDivision(Divisions divisions) {
+        divisionRepository.save(divisions);
     }
 
     @Override
