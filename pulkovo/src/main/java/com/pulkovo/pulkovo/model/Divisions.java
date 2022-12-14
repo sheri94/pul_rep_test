@@ -6,9 +6,12 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -37,26 +40,32 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class Divisions {
 
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(length = 150)
     @NonNull
     private String name;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ref_to_parent_division_id")
-    @NonNull
     private Divisions refToParentDivision;
 
     @NonNull
-    private Date dateFrom;
+    @Column
+    private LocalDateTime dateFrom;
 
-    private Date dateTill;
+    private LocalDateTime dateTill;
 
     @NonNull
-    private Date dateCreation;
+    @Column
+    private LocalDateTime dateCreation;
 
-    private Date dateCorrection;
+    @Column
+    private LocalDateTime dateCorrection;
 }

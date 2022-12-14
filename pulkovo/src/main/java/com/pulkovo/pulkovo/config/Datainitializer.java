@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -24,14 +26,44 @@ public class Datainitializer {
 
     @PostConstruct
     public void init() {
-//        createDivision();
+        createDivision();
         System.out.println("Init method run");
     }
 
     public void createDivision() {
-//Divisions divisions = new Divisions();
-////        Divisions direction = new Divisions(1L, "GenDir", new Divisions(), new Date(), new Date(), new Date(), new Date());
-//        divisionService.saveDivision(divisions);
+
+        Divisions direction = new Divisions("GenDi",
+                LocalDateTime.of(1994, 12, 15, 16, 00),
+                LocalDateTime.of(1993, 12, 15, 16, 00));
+
+        Divisions economic = new Divisions(2L, "economic", direction,
+                LocalDateTime.of(1994, 12, 15, 16, 00),
+                LocalDateTime.of(1993, 12, 15, 16, 00),
+                LocalDateTime.of(1993, 12, 15, 16, 00),
+                LocalDateTime.of(1993, 12, 15, 16, 00));
+
+        Divisions laer = new Divisions(3L, "laer", direction,
+                LocalDateTime.of(1994, 12, 15, 16, 00),
+                LocalDateTime.of(1993, 12, 15, 16, 00),
+                LocalDateTime.of(1993, 12, 15, 16, 00),
+                LocalDateTime.of(1993, 12, 15, 16, 00));
+
+        Divisions divisionsDirPoProizv = new Divisions(4L, "divisionsDirPoProizv", direction,
+                LocalDateTime.of(1994, 12, 15, 16, 00),
+                LocalDateTime.of(1993, 12, 15, 16, 00),
+                LocalDateTime.of(1993, 12, 15, 16, 00),
+                LocalDateTime.of(1993, 12, 15, 16, 00));
+
+        Divisions bilders = new Divisions(5L, "bilders", divisionsDirPoProizv,
+                LocalDateTime.of(1994, 12, 15, 16, 00),
+                LocalDateTime.of(1993, 12, 15, 16, 00),
+                LocalDateTime.of(1993, 12, 15, 16, 00),
+                LocalDateTime.of(1993, 12, 15, 16, 00));
+        divisionService.saveDivision(direction);
+        divisionService.saveDivision(economic);
+        divisionService.saveDivision(laer);
+        divisionService.saveDivision(divisionsDirPoProizv);
+        divisionService.saveDivision(bilders);
     }
 
 }

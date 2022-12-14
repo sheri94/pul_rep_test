@@ -2,6 +2,7 @@ package com.pulkovo.pulkovo.service;
 
 import com.pulkovo.pulkovo.model.Divisions;
 import com.pulkovo.pulkovo.repository.DivisionRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
@@ -14,6 +15,7 @@ import java.util.Date;
  * \* Description:
  * \
  */
+@Service
 public class DivisionServiceImpl implements DivisionService {
 
     private final DivisionRepository divisionRepository;
