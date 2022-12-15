@@ -1,5 +1,8 @@
 package com.pulkovo.pulkovo.controller;
 
+import com.pulkovo.pulkovo.service.DivisionService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/Api")
+@RequiredArgsConstructor
 public class DivisionController {
+
+    public final DivisionService divisionService;
+
 
 }
